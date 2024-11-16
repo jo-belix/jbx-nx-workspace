@@ -13,7 +13,7 @@
         "outputPath": "dist/apps/jbx-account",
         "index": "apps/jbx-account/src/index.html",
         "browser": "apps/jbx-account/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": ["zone.js", "@angular/localize/init"],
         "tsConfig": "apps/jbx-account/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [

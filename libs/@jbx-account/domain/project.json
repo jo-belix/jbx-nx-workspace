@@ -1,16 +1,16 @@
 {
-  "name": "@jbx-account/ui",
+  "name": "@jbx-account/domain",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/@jbx-account/ui/src",
+  "sourceRoot": "libs/@jbx-account/domain/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["ui"],
+  "tags": ["domain"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/@jbx-account/ui/jest.config.ts"
+        "jestConfig": "libs/@jbx-account/domain/jest.config.ts"
       }
     },
     "lint": {

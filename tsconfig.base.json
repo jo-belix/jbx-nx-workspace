@@ -15,6 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@jbx-account/adapter": ["libs/@jbx-account/adapter/src/index.ts"],
+      "@jbx-account/domain": ["libs/@jbx-account/domain/src/index.ts"],
+      "@jbx-account/http-client": [
+        "libs/@jbx-account/http-client/src/index.ts"
+      ],
       "@jbx-account/ui": ["libs/@jbx-account/ui/src/index.ts"]
     }
   },
