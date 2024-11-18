@@ -4,7 +4,7 @@
   "sourceRoot": "libs/@jbx-account/http-client/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["http-client"],
+  "tags": ["type:http-client"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",

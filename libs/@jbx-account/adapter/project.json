@@ -4,7 +4,7 @@
   "sourceRoot": "libs/@jbx-account/adapter/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["adapter"],
+  "tags": ["type:adapter"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",

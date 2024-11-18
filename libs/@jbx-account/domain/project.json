@@ -4,7 +4,7 @@
   "sourceRoot": "libs/@jbx-account/domain/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["domain"],
+  "tags": ["type:domain"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
