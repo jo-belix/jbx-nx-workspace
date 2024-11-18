@@ -11,8 +11,10 @@ export class AccountStateService {
   private readonly accountHttpClient = inject(AccountHttpClient);
   public readonly accounts = signal<Account[] | null>(null);
   public loadAccounts(): void {
+    if(this.accounts() === null){
       this.accountHttpClient.getAccounts().subscribe((accounts) => {
           this.accounts.set(accounts);
       });
+    }
   }
 }

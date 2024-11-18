@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Account } from '@jbx-account/domain';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-account-list',
@@ -13,5 +14,14 @@ import { Account } from '@jbx-account/domain';
 export class AccountListComponent {
 
   public accounts = input<Account[] | null>(null);
+
+  protected readonly router = inject(Router);
+
+
+  
+  protected onUpdateButtonClick(account: Account){
+    this.router.navigateByUrl(`accounts/${account.id}`);
+  }
+
 
 }

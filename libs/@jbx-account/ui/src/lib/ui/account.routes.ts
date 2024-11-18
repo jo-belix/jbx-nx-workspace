@@ -20,6 +20,13 @@ export const accountRoutes: Routes = [
             (m) => m.AccountListPageComponent
           ),
       },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./account-detail/page/account-detail-page.component').then(
+            (m) => m.AccountDetailPageComponent
+          ),
+      },
     ],
   },
 ];
