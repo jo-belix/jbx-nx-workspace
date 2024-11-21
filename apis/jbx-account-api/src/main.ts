@@ -14,6 +14,15 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Middleware to parse the request body as JSON
 app.use(express.json()); 
+
+// Middleware to handle CORS
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 // Middleware to handle errors
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);

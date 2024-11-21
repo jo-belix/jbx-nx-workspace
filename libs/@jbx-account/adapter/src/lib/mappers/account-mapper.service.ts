@@ -9,4 +9,7 @@ export class AccountMapper {
   mapAccountDtoToAccount(accountDto: AccountDto): Account {
     return new Account(accountDto.id, accountDto.name);
   }
+  mapAccountToAccountDto(account: Account): Account {
+    return new AccountDto(account.id, account.name);
+  }
 }

@@ -1,22 +1,38 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { AccountListComponent } from '../components/account-list/account-list.component';
 import { CommonModule } from '@angular/common';
-import { AccountStateService } from '../../account-state.service';
+import { PageLayoutComponent, PrimaryButtonComponent } from '@jbx/cdk';
+import { Router } from '@angular/router';
+import { Account, AccountService } from '@jbx-account/domain';
 
 @Component({
   selector: 'lib-accounting-list-page',
   standalone: true,
-  imports: [CommonModule, AccountListComponent],
+  imports: [CommonModule, PageLayoutComponent, AccountListComponent, PrimaryButtonComponent],
   templateUrl: './account-list-page.component.html',
-  styleUrl: './account-list-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountListPageComponent {
+  protected readonly accountService = inject(AccountService);
+  private readonly router = inject(Router);
 
-  protected readonly accountStateService = inject(AccountStateService);
- 
-  constructor(){
-    this.accountStateService.loadAccounts();
+  constructor() {
+    this.accountService.loadAccounts();
   }
 
+  protected onConsult(account: Account) : void {
+    this.router.navigate(['accounts', account.id,'consultation']);
+  }
+
+  protected onUpdate(account: Account) : void {
+    this.router.navigate(['accounts', account.id,'edition']);
+  }
+
+  protected onDelete(accountId: number) : void {
+    this.accountService.deleteAccount(accountId);
+  }
+
+  protected onAddAccountButtonClick() : void {
+    this.router.navigate(['accounts', '0','edition']);
+  }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonBaseComponent } from '../button-base.component';
 
@@ -11,7 +11,5 @@ import { ButtonBaseComponent } from '../button-base.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SecondaryButtonComponent extends ButtonBaseComponent {
-
-  @Input({required: true}) public label!: string;
-
+  public label = input.required<string>();
 }

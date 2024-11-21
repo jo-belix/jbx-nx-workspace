@@ -1,0 +1,42 @@
+@defer (when accountFormGroup()) {
+<jbx-form-layout>
+  <form [formGroup]="accountFormGroup()">
+    <jbx-input-text
+      id="account-name-input"
+      ariaLabel="account name"
+      i18n-label
+      label="Account Name"
+      [formControlName]="AccountFormGroupControlsEnum.name"
+    />
+  </form>
+  <footer class="d-flex justify-content-end gap-2">
+    @if (!isReadOnly()) {
+    <jbx-secondary-button
+      id="cancel-account-button"
+      i18nLabel
+      label="Cancel"
+      ariaLabel="Cancel"
+      (clickNg)="onCancelButtonClick()"
+    />
+    <jbx-primary-button
+      id="save-account-button"
+      i18nLabel
+      label="Save"
+      ariaLabel="Save"
+      (clickNg)="onSaveButtonClick()"
+    />
+    } @else {
+    <jbx-primary-button
+      id="close-account-button"
+      i18nLabel
+      label="Close"
+      ariaLabel="Close"
+      (clickNg)="onCloseButtonClick()"
+    />
+    }
+    <!-- <jbx-primary-button id="save-account-button" i18nLabel label="Save" ariaLabel="Save" (clickNg)="onSaveButtonClick()"/> -->
+  </footer>
+</jbx-form-layout>
+} @placeholder {
+<span i18n>Loading...</span>
+}

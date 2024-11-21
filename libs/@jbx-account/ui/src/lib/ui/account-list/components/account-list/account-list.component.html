@@ -9,11 +9,11 @@
           Account name
         </th>
         <th
-        scope="col"
-        i18n
-      >
-        Account balance
-      </th>
+          scope="col"
+          i18n
+        >
+          Account balance
+        </th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -30,6 +30,13 @@
           <button
             class="btn btn-outline-primary btn-sm"
             i18n
+            (click)="onConsultButtonClick(account)"
+          >
+            Consult
+          </button>
+          <button
+            class="btn btn-outline-primary btn-sm"
+            i18n
             (click)="onUpdateButtonClick(account)"
           >
             Update
@@ -37,6 +44,7 @@
           <button
             class="btn btn-outline-danger btn-sm"
             i18n
+            (click)="onDeleteButtonClick(account)"
           >
             Delete
           </button>

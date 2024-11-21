@@ -21,7 +21,8 @@
         "libs/@jbx-account/http-client/src/index.ts"
       ],
       "@jbx-account/ui": ["libs/@jbx-account/ui/src/index.ts"],
-      "@jbx/cdk": ["libs/@jbx/cdk/src/index.ts"]
+      "@jbx/cdk": ["libs/@jbx/cdk/src/index.ts"],
+      "@jbx/mom": ["libs/@jbx/mom/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

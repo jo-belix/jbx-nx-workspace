@@ -21,12 +21,22 @@ export const accountRoutes: Routes = [
           ),
       },
       {
-        path: ':id',
+        path: ':id/consultation',
+        data: { isConsultation: true },
         loadComponent: () =>
           import('./account-detail/page/account-detail-page.component').then(
             (m) => m.AccountDetailPageComponent
           ),
       },
+      {
+        path: ':id/edition',
+        data: { isConsultation: false },
+        loadComponent: () =>
+          import('./account-detail/page/account-detail-page.component').then(
+            (m) => m.AccountDetailPageComponent
+          ),
+      },
+
     ],
   },
 ];

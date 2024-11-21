@@ -2,41 +2,74 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  Input,
   OnInit,
   computed,
   Signal,
+  numberAttribute,
+  input,
+  booleanAttribute,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Account } from '@jbx-account/domain';
-import { AccountStateService } from '../../account-state.service';
+import { Account, AccountService } from '@jbx-account/domain';
+import { AccountFormComponent } from '../components/account-form/account-form.component';
+import {
+  PageLayoutComponent,
+  PrimaryButtonComponent,
+  SecondaryButtonComponent,
+} from '@jbx/cdk';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-account-detail-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    PageLayoutComponent,
+    PrimaryButtonComponent,
+    SecondaryButtonComponent,
+    AccountFormComponent,
+  ],
   templateUrl: './account-detail-page.component.html',
-  styleUrl: './account-detail-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccountDetailPageComponent implements OnInit {
-  protected readonly accountStateService = inject(AccountStateService);
+export class AccountDetailPageComponent {
+  //implements OnInit {
+  public id = input(0, { transform: numberAttribute });
+  public isConsultation = input(true, { transform: booleanAttribute });
 
-  @Input({ required: true }) id!: number;
+  protected readonly accountService = inject(AccountService);
+  protected readonly router = inject(Router);
 
-  // Get the account with the given id from the accountStateService
-  protected account!: Signal<Account | null>;
+  protected account = computed(
+    () =>
+      this.accountService
+        .accounts()
+        ?.find((account) => account.id === this.id()) ??
+      this.accountService.initializeNewAccount()
+  );
 
   constructor() {
-    this.accountStateService.loadAccounts();
+    this.accountService.loadAccounts();
   }
 
-  ngOnInit(): void {
-    this.account = computed(
-      () =>
-        this.accountStateService
-          .accounts()
-          ?.find((account) => account.id == this.id) ?? null
-    );
+  protected onCreate(account: Account): void {
+    this.accountService.createAccount(account);
+    this.navigateToAccountList();
+  }
+
+  protected onUpdate(account: Account): void {
+    this.accountService.updateAccount(account);
+    this.navigateToAccountList();
+  }
+
+  protected onCancel(): void {
+    this.navigateToAccountList();
+  }
+  protected onClose(): void {
+    this.navigateToAccountList();
+  }
+
+  private navigateToAccountList(): void {
+    this.router.navigate(['/accounts']);
   }
 }

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AccountStateService } from './account-state.service';
+import { MessageBrokerService } from './message-broker.service';
 
-describe('AccountStateService', () => {
-  let service: AccountStateService;
+describe('MessageBrokerService', () => {
+  let service: MessageBrokerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AccountStateService);
+    service = TestBed.inject(MessageBrokerService);
   });
 
   it('should be created', () => {

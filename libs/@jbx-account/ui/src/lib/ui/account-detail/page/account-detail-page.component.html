@@ -1,2 +1,12 @@
-<p>account-detail-page {{account()?.name}} </p>
-
+<jbx-page-layout>
+  @defer (when account()) {
+  <lib-account-form
+    [account]="account()!"
+    [isReadOnly]="isConsultation()"
+    (create)="onCreate($event)"
+    (update)="onUpdate($event)"
+    (cancel)="onCancel()"
+    (close)="onClose()"
+  />
+  }
+</jbx-page-layout>

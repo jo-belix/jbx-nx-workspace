@@ -4,7 +4,7 @@
   "sourceRoot": "libs/@jbx/cdk/src",
   "prefix": "jbx",
   "projectType": "library",
-  "tags": [],
+  "tags": ["type:package-ui"],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",

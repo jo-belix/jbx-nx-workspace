@@ -1,3 +1,16 @@
-<div class="container-fluid">
-  <lib-account-list [accounts]="accountStateService.accounts()"></lib-account-list>
-</div>
+<jbx-page-layout>
+  <lib-account-list
+    [accounts]="accountService.accounts()"
+    (consult)="onConsult($event)"
+    (update)="onUpdate($event)"
+    (delete)="onDelete($event)"
+  />
+  <footer class="d-flex justify-content-end">
+    <jbx-primary-button
+      id="add-account-button"
+      label="Add an account"
+      ariaLabel="Add a account"
+      (clickNg)="onAddAccountButtonClick()"
+    />
+  </footer>
+</jbx-page-layout>
