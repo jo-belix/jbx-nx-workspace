@@ -1,12 +1,15 @@
-import { Observable } from "rxjs";
 import { Account } from "../../models/account.model";
+import { Signal } from "@angular/core";
 
 export abstract class IAccountDataProvider {
-  public abstract getAccounts(): Observable<Account[]>;
 
-  public abstract updateAccount(account: Account): Observable<Account>;
+  public abstract accounts: Signal<Account[] | null>;
 
-  public abstract createAccount(account: Account): Observable<Account>;
+  public abstract loadAccounts(): void;
 
-  public abstract deleteAccount(accountId: number): Observable<void>;
+  public abstract updateAccount(account: Account): void;
+
+  public abstract createAccount(account: Account): void;
+
+  public abstract deleteAccount(accountId: number): void;
 }

@@ -6,40 +6,24 @@ import { IAccountDataProvider } from '../../ports/data-providers/i-account-data-
 export class AccountService {
   private readonly accountDataProvider = inject(IAccountDataProvider);
 
-  public accounts = signal<Account[] | null>(null);
+  public accounts = this.accountDataProvider.accounts;
 
   public loadAccounts() {
     if (this.accounts() === null) {
-      this.accountDataProvider.getAccounts().subscribe((accounts) => {
-        this.accounts.set(accounts);
-      });
+      this.accountDataProvider.loadAccounts();
     }
   }
 
   public updateAccount(account: Account): void {
-    this.accountDataProvider.updateAccount(account).subscribe((account) => {
-      if (this.accounts !== null) {
-        this.accounts.set(
-          this.accounts()!.map((a) => (a.id === account.id ? account : a))
-        );
-      }
-    });
+    this.accountDataProvider.updateAccount(account);
   }
 
   public createAccount(account: Account): void {
-    this.accountDataProvider.createAccount(account).subscribe((account) => {
-      if (this.accounts !== null) {
-        this.accounts.set([...this.accounts()!, account]);
-      }
-    });
+    this.accountDataProvider.createAccount(account);
   }
 
   public deleteAccount(accountId: number): void {
-    this.accountDataProvider.deleteAccount(accountId).subscribe(() => {
-      if (this.accounts !== null) {
-        this.accounts.set(this.accounts()!.filter((a) => a.id !== accountId));
-      }
-    });
+    this.accountDataProvider.deleteAccount(accountId);
   }
 
   public initializeNewAccount(): Account {
