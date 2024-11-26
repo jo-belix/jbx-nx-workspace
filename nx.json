@@ -15,6 +15,7 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
+  "packageManager": "pnpm",
   "nxCloudId": "672a4d3ca05b9203efea0729",
   "targetDefaults": {
     "@angular-devkit/build-angular:application": {
@@ -64,14 +65,6 @@
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/webpack/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview"
       }
     }
   ],

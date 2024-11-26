@@ -5,6 +5,28 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apis/jbx-account-api",
+        "main": "apis/jbx-account-api/src/main.ts",
+        "tsConfig": "apis/jbx-account-api/tsconfig.app.json",
+        "assets": ["apis/jbx-account-api/src/assets"],
+        "webpackConfig": "apis/jbx-account-api/webpack.config.js"
+      },
+      "target": "node",
+      "compiler": "tsc",
+      "configurations": {
+        "development": {
+        },
+        "production": {
+        }
+      }
+    },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
