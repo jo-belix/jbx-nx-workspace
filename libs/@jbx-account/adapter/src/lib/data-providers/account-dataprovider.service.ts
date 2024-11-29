@@ -1,57 +1,41 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { Account, IAccountDataProvider } from '@jbx-account/domain';
-import { AccountDto, AccountHttpClient } from '@jbx-account/http-client';
-import { map, Observable } from 'rxjs';
+
 import { AccountMapper } from '../mappers/account-mapper.service';
+import { AccountDtoStore } from '../stores/account-dto-store.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountDataprovider implements IAccountDataProvider {
-  private readonly accountHttpClient = inject(AccountHttpClient);
   private readonly accountMapper = inject(AccountMapper);
-
-  private readonly accountDtos = signal<AccountDto[] | null>(null);
+  private readonly accountDtoStore = inject(AccountDtoStore);
 
   public accounts = computed(() => {
     return (
-      this.accountDtos()?.map((accountDto) => {
+      this.accountDtoStore.accountDtos()?.map((accountDto) => {
         return this.accountMapper.mapAccountDtoToAccount(accountDto);
       }) ?? null
     );
   });
 
   public loadAccounts(): void {
-    this.accountHttpClient.getAccounts().subscribe((accountDtos) => {
-      this.accountDtos.set(accountDtos);
-    });
+    this.accountDtoStore.loadAccounts();
   }
 
   public updateAccount(account: Account): void {
-    this.accountHttpClient
-      .putAccount(this.accountMapper.mapAccountToAccountDto(account))
-      .subscribe((accountDto) => {
-        this.accountDtos.set(
-          this.accountDtos()?.map((a) => {
-            return accountDto.id === a.id ? accountDto : a;
-          }) ?? null
-        );
-      });
+    this.accountDtoStore.updateAccount(
+      this.accountMapper.mapAccountToAccountDto(account)
+    );
   }
 
   public createAccount(account: Account): void {
-    this.accountHttpClient
-      .postAccount(this.accountMapper.mapAccountToAccountDto(account))
-      .subscribe((accountDto) => {
-        this.accountDtos.set(this.accountDtos()?.concat(accountDto) ?? null);
-      });
+    this.accountDtoStore.createAccount(
+      this.accountMapper.mapAccountToAccountDto(account)
+    );
   }
 
   public deleteAccount(accountId: number): void {
-    this.accountHttpClient.deleteAccount(accountId).subscribe(() => {
-      this.accountDtos.set(
-        this.accountDtos()?.filter((accountDto) => accountDto.id !== accountId) ?? null
-      );
-    });
+    this.accountDtoStore.deleteAccount(accountId);
   }
 }
