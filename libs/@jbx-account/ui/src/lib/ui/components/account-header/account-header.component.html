@@ -1,0 +1,9 @@
+<div>
+  @defer (when account()) {
+    <div>
+      <h1>{{account()?.name}}</h1>
+    </div>
+  } @placeholder {
+    <div i18n="@@loadingAccountHeaderPlaceholder">Loading account header...</div>
+  }
+</div>
