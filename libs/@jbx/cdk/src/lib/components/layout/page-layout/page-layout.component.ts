@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
     selector: 'jbx-page-layout',
     imports: [CommonModule],
     templateUrl: './page-layout.component.html',
-    styleUrl: './page-layout.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageLayoutComponent {}

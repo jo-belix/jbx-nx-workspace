@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { PageLayoutComponent, PrimaryButtonComponent } from '@jbx/cdk';
 import { Router } from '@angular/router';
 import { Account, AccountService } from '@jbx-account/domain';
-import { AccountHeaderComponent } from '../../../components/account-header/account-header.component';
 
 @Component({
   selector: 'lib-accounting-list-page',

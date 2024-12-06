@@ -22,7 +22,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     selector: 'jbx-input-text',
     imports: [CommonModule, ReactiveFormsModule],
     templateUrl: './input-text.component.html',
-    styleUrl: './input-text.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonBaseComponent } from '../button-base.component';
 
@@ -6,7 +6,6 @@ import { ButtonBaseComponent } from '../button-base.component';
     selector: 'jbx-primary-button',
     imports: [CommonModule],
     templateUrl: './primary-button.component.html',
-    styleUrl: './primary-button.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PrimaryButtonComponent extends ButtonBaseComponent {

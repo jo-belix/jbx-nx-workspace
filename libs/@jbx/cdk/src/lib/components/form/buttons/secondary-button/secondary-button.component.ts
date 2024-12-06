@@ -6,7 +6,6 @@ import { ButtonBaseComponent } from '../button-base.component';
     selector: 'jbx-secondary-button',
     imports: [CommonModule],
     templateUrl: './secondary-button.component.html',
-    styleUrl: './secondary-button.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SecondaryButtonComponent extends ButtonBaseComponent {

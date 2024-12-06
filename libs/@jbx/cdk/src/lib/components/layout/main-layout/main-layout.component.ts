@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
     selector: 'jbx-main-layout',
     imports: [CommonModule],
     templateUrl: './main-layout.component.html',
-    styleUrl: './main-layout.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainLayoutComponent {}

@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { AccountDto, AccountHttpClient } from '@jbx-account/http-client';
-import { catchError, EMPTY, of, tap } from 'rxjs';
+import { catchError, EMPTY, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

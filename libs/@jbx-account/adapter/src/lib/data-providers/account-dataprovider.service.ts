@@ -1,4 +1,4 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable } from '@angular/core';
 import { Account, IAccountDataProvider } from '@jbx-account/domain';
 
 import { AccountMapper } from '../mappers/account-mapper.service';

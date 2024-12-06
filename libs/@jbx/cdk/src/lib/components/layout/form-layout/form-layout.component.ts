@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
     selector: 'jbx-form-layout',
     imports: [CommonModule],
     templateUrl: './form-layout.component.html',
-    styleUrl: './form-layout.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormLayoutComponent {}
