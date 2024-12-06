@@ -30,7 +30,7 @@ module.exports = [
             },
             {
               sourceTag: 'type:adapter',
-              onlyDependOnLibsWithTags: ['type:http-client'],
+              onlyDependOnLibsWithTags: ['type:domain','type:http-client'],
             },
             {
               sourceTag: 'type:http-client',
