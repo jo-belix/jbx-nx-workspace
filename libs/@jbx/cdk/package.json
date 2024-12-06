@@ -4,7 +4,8 @@
   "peerDependencies": {
     "@angular/common": "^19.0.3",
     "@angular/core": "^19.0.3",
-    "@angular/forms": "^19.0.3"
+    "@angular/forms": "^19.0.3",
+    "rxjs": "~7.8.0"
   },
   "sideEffects": false
 }
