@@ -48,20 +48,20 @@ export class AccountDetailPageComponent {
     this.accountService.loadAccounts();
   }
 
-  protected onCreate(account: Account): void {
+  protected onCreateAccount(account: Account): void {
     this.accountService.createAccount(account);
     this.navigateToAccountList();
   }
 
-  protected onUpdate(account: Account): void {
+  protected onUpdateAccount(account: Account): void {
     this.accountService.updateAccount(account);
     this.navigateToAccountList();
   }
 
-  protected onCancel(): void {
+  protected onCancelForm(): void {
     this.navigateToAccountList();
   }
-  protected onClose(): void {
+  protected onCloseForm(): void {
     this.navigateToAccountList();
   }
 

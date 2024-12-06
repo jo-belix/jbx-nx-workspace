@@ -11,10 +11,10 @@
   <lib-account-form
     [account]="account()!"
     [isReadOnly]="isConsultation()"
-    (create)="onCreate($event)"
-    (update)="onUpdate($event)"
-    (cancel)="onCancel()"
-    (close)="onClose()"
+    (createAccount)="onCreateAccount($event)"
+    (updateAccount)="onUpdateAccount($event)"
+    (cancelForm)="onCancelForm()"
+    (closeForm)="onCloseForm()"
   />
   }
 </jbx-page-layout>

@@ -36,10 +36,10 @@ import {
 export class AccountFormComponent {
   public account = input.required<Account>();
   public isReadOnly = input.required<boolean>();
-  public create = output<Account>();
-  public update = output<Account>();
-  public cancel = output<void>();
-  public close = output<void>();
+  public createAccount = output<Account>();
+  public updateAccount = output<Account>();
+  public cancelForm = output<void>();
+  public closeForm = output<void>();
 
   private readonly accountFormBuilderService: AccountFormBuilderService =
     inject(AccountFormBuilderService);
@@ -55,18 +55,18 @@ export class AccountFormComponent {
     AccountFormControlsEnum;
 
   protected onCancelButtonClick(): void {
-    this.cancel.emit();
+    this.cancelForm.emit();
   }
   protected onSaveButtonClick(): void {
     const account = this.accountFormGroup().getRawValue() as Account;
     if (this.account().id === 0) {
-      this.create.emit(account);
+      this.createAccount.emit(account);
     } else {
-      this.update.emit(account);
+      this.updateAccount.emit(account);
     }
   }
 
   onCloseButtonClick(): void {
-    this.close.emit();
+    this.closeForm.emit();
   }
 }
