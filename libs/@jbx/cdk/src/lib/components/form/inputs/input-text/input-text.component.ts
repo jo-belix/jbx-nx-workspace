@@ -19,19 +19,18 @@ import { debounceTime, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'jbx-input-text',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './input-text.component.html',
-  styleUrl: './input-text.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputTextComponent),
-      multi: true,
-    },
-  ],
+    selector: 'jbx-input-text',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './input-text.component.html',
+    styleUrl: './input-text.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => InputTextComponent),
+            multi: true,
+        },
+    ]
 })
 export class InputTextComponent
   extends FormBaseComponent

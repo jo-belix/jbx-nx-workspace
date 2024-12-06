@@ -3,7 +3,8 @@ import { FormBaseComponent } from "../form-base.component";
 
 
 @Component({
-  template: ''
+    template: '',
+    standalone: false
 })
 export abstract class ButtonBaseComponent extends FormBaseComponent {
 
