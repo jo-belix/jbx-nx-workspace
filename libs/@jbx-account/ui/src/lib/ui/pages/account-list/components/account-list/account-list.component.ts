@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, inject, input, output } from '@angu
 import { CommonModule } from '@angular/common';
 import { Account } from '@jbx-account/domain';
 import { Router } from '@angular/router';
+import { AccountHeaderComponent } from '../../../../components/account-header/account-header.component';
 
 @Component({
   selector: 'lib-account-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AccountHeaderComponent],
   templateUrl: './account-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

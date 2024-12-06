@@ -10,5 +10,5 @@ import { Account } from '@jbx-account/domain';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccountHeaderComponent {
-  protected readonly account = input.required<Account | null>();
+  public readonly account = input.required<Account | null>();
 }

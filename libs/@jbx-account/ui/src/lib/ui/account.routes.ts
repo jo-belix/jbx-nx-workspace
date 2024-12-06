@@ -16,7 +16,7 @@ export const accountRoutes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./account-list/page/account-list-page.component').then(
+          import('./pages/account-list/page/account-list-page.component').then(
             (m) => m.AccountListPageComponent
           ),
       },
@@ -24,7 +24,7 @@ export const accountRoutes: Routes = [
         path: ':id/consultation',
         data: { isConsultation: true },
         loadComponent: () =>
-          import('./account-detail/page/account-detail-page.component').then(
+          import('./pages/account-detail/page/account-detail-page.component').then(
             (m) => m.AccountDetailPageComponent
           ),
       },
@@ -32,7 +32,7 @@ export const accountRoutes: Routes = [
         path: ':id/edition',
         data: { isConsultation: false },
         loadComponent: () =>
-          import('./account-detail/page/account-detail-page.component').then(
+          import('./pages/account-detail/page/account-detail-page.component').then(
             (m) => m.AccountDetailPageComponent
           ),
       },

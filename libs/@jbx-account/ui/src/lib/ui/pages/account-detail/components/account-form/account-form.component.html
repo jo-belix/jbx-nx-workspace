@@ -1,4 +1,4 @@
-@defer (when accountFormGroup()) {
+@defer (when accountFormGroup(); hydrate on interaction) {
 <jbx-form-layout>
   <form [formGroup]="accountFormGroup()">
     <jbx-input-text

@@ -1,10 +1,15 @@
 <jbx-page-layout>
+  @defer (when accountService.accounts(); hydrate on interaction) {
   <lib-account-list
     [accounts]="accountService.accounts()"
     (consult)="onConsult($event)"
     (update)="onUpdate($event)"
     (delete)="onDelete($event)"
   />
+  }
+  @placeholder() {
+    <span i18n>Loading accounts...</span>
+  }
   <footer class="d-flex justify-content-end">
     <jbx-primary-button
       id="add-account-button"

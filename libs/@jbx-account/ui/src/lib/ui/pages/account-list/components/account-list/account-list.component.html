@@ -1,60 +1,37 @@
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th
-          scope="col"
-          i18n
-        >
-          Account name
-        </th>
-        <th
-          scope="col"
-          i18n
-        >
-          Account balance
-        </th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-
-    @defer (when !!accounts()) { @for (account of accounts(); track $index) {
-    <tr>
-      <td>{{ account.name }}</td>
-      <td>{{ account.name }}</td>
-      <td>
-        <div
-          class="btn-group"
-          role="group"
-        >
-          <button
-            class="btn btn-outline-primary btn-sm"
-            i18n
-            (click)="onConsultButtonClick(account)"
-          >
-            Consult
-          </button>
-          <button
-            class="btn btn-outline-primary btn-sm"
-            i18n
-            (click)="onUpdateButtonClick(account)"
-          >
-            Update
-          </button>
-          <button
-            class="btn btn-outline-danger btn-sm"
-            i18n
-            (click)="onDeleteButtonClick(account)"
-          >
-            Delete
-          </button>
-        </div>
-      </td>
-    </tr>
-    } } @placeholder {
-    <tr>
-      <td i18n>Loading...</td>
-    </tr>
-    }
-  </table>
+<div class="container d-flex flex-column gap-2">
+  @defer (when !!accounts()) { @for (account of accounts(); track $index) {
+  <div class="d-flex flex-row align-items-center justify-content-between">
+    <lib-account-header [account]="account" [style.view-transition-name]="'account-header_'+ account.id"/>
+    <div
+      class="btn-group"
+      role="group"
+    >
+      <button
+        class="btn btn-outline-primary btn-sm"
+        i18n
+        (click)="onConsultButtonClick(account)"
+      >
+        Consult
+      </button>
+      <button
+        class="btn btn-outline-primary btn-sm"
+        i18n
+        (click)="onUpdateButtonClick(account)"
+      >
+        Update
+      </button>
+      <button
+        class="btn btn-outline-danger btn-sm"
+        i18n
+        (click)="onDeleteButtonClick(account)"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+  } } @placeholder {
+  <tr>
+    <td i18n>Loading...</td>
+  </tr>
+  }
 </div>

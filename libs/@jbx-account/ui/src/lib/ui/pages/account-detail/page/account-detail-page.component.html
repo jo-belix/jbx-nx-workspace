@@ -1,5 +1,13 @@
 <jbx-page-layout>
-  @defer (when account()) {
+  <div class="d-flex flex-row justify-content-end">
+    <lib-account-header
+      [account]="account()"
+      [style.view-transition-name]="'account-header_'+ account()!.id"
+    />
+  </div>
+
+  @defer (when account(); hydrate on interaction) {
+
   <lib-account-form
     [account]="account()!"
     [isReadOnly]="isConsultation()"

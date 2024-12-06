@@ -18,6 +18,7 @@ import {
   SecondaryButtonComponent,
 } from '@jbx/cdk';
 import { Router } from '@angular/router';
+import { AccountHeaderComponent } from '../../../components/account-header/account-header.component';
 
 @Component({
   selector: 'lib-account-detail-page',
@@ -25,9 +26,8 @@ import { Router } from '@angular/router';
   imports: [
     CommonModule,
     PageLayoutComponent,
-    PrimaryButtonComponent,
-    SecondaryButtonComponent,
     AccountFormComponent,
+    AccountHeaderComponent
   ],
   templateUrl: './account-detail-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
