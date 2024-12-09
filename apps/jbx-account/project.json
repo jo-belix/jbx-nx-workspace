@@ -90,6 +90,22 @@
         "staticFilePath": "dist/apps/jbx-account/browser",
         "spa": true
       }
+    },
+    "container": {
+      "defaultConfiguration": "local",
+      "options": {
+        "context": "dist/apps/jbx-account"
+      },
+      "configurations": {
+        "local": {
+          "tags": ["jbx-account:latest"],
+          "push": false
+        },
+        "production": {
+          "tags": ["???/jbx-account:latest"],
+          "push": true
+        }
+      }
     }
   }
 }

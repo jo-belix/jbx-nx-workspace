@@ -50,6 +50,22 @@
       "options": {
         "jestConfig": "apis/jbx-account-api/jest.config.ts"
       }
+    },
+    "container": {
+      "defaultConfiguration": "local",
+      "options": {
+        "context": "dist/apis/jbx-account-api"
+      },
+      "configurations": {
+        "local": {
+          "tags": ["jbx-account-api:latest"],
+          "push": false
+        },
+        "production": {
+          "tags": ["???/jbx-account-api:latest"],
+          "push": true
+        }
+      }
     }
   }
 }
