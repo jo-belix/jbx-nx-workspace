@@ -62,7 +62,7 @@
           "push": false
         },
         "production": {
-          "tags": ["???/jbx-account-api:latest"],
+          "tags": ["248189925461.dkr.ecr.eu-west-3.amazonaws.com/jbx-account-api"],
           "push": true
         }
       }

@@ -94,7 +94,7 @@
     "container": {
       "defaultConfiguration": "local",
       "options": {
-        "context": "dist/apps/jbx-account"
+        "context": "dist/apps/jbx-account",
       },
       "configurations": {
         "local": {
@@ -102,7 +102,7 @@
           "push": false
         },
         "production": {
-          "tags": ["???/jbx-account:latest"],
+          "tags": ["248189925461.dkr.ecr.eu-west-3.amazonaws.com/jbx-account"],
           "push": true
         }
       }

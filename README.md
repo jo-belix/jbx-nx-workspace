@@ -11,15 +11,13 @@
 [Click here to finish setting up your workspace!](https://cloud.nx.app/connect/f65aL0fjBQ)
 
 
-## Docker files
+## Login to AWS
 
-- [jbx-account.dockerfile](./jbx-account.dockerfile)
-    - Command to build the jbx-account project : `docker build -f jbx-account.dockerfile -t jbx-account-ssr .`
-    - Command to run the jbx-account project : `docker run -p 4000:4000 jbx-account-ssr`
-    
-- [jbx-account-api.dockerfile](./jbx-account-api.dockerfile)
-    - Command to build the jbx-account-api project : `docker build -f jbx-account-api.dockerfile -t jbx-account-api .`
-    - Command to run the jbx-account-api project : `docker run -p 3333:3333 jbx-account-api`
+```sh
+aws ecr get-login-password --region eu-west-3 | docker login --username AWS --password-stdin 248189925461.dkr.ecr.eu-west-3.amazonaws.com
+```
+
+
 
 ## Run tasks
 
