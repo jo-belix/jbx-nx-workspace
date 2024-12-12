@@ -22,7 +22,12 @@ module.exports = [
             },
             {
               sourceTag: 'type:ui',
-              onlyDependOnLibsWithTags: ['type:domain', 'type:adapter', 'type:package-ui', 'type:package'],
+              onlyDependOnLibsWithTags: [
+                'type:domain',
+                'type:adapter',
+                'type:package-ui',
+                'type:package',
+              ],
             },
             {
               sourceTag: 'type:domain',
@@ -30,7 +35,7 @@ module.exports = [
             },
             {
               sourceTag: 'type:adapter',
-              onlyDependOnLibsWithTags: ['type:domain','type:http-client'],
+              onlyDependOnLibsWithTags: ['type:domain', 'type:http-client'],
             },
             {
               sourceTag: 'type:http-client',
@@ -65,5 +70,19 @@ module.exports = [
       ],
     },
     languageOptions: { parser: require('jsonc-eslint-parser') },
+  },
+  {
+    files: ['**/*.json'],
+    rules: {
+      '@nx/dependency-checks': [
+        'error',
+        {
+          ignoredFiles: ['{projectRoot}/eslint.config.{js,cjs,mjs}'],
+        },
+      ],
+    },
+    languageOptions: {
+      parser: require('jsonc-eslint-parser'),
+    },
   },
 ];
