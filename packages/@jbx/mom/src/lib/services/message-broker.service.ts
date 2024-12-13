@@ -7,7 +7,7 @@ import { EventMessageBase } from '../models/event-message-base.model';
 @Injectable({
   providedIn: 'root',
 })
-export class MessageBrokerService {
+export class MessageBroker {
   private readonly eventMessageSendedSubject: Subject<EventMessageBase> =
     new Subject<EventMessageBase>();
   public eventMessageSended$: Observable<EventMessageBase> =

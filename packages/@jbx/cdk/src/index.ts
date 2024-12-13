@@ -1,3 +1,5 @@
+import '@angular/localize/init';
+
 export * from './lib/components/form/buttons/primary-button/primary-button.component';
 export * from './lib/components/form/buttons/secondary-button/secondary-button.component';
 export * from './lib/components/form/inputs/input-text/input-text.component';
@@ -7,3 +9,5 @@ export * from './lib/components/layout/form-layout/form-layout.component';
 export * from './lib/components/layout/main-layout/main-layout.component';
 
 export * from './lib/components/form/inputs/input-text/input-text.component';
+export * from './lib/components/form/inputs/input-password/input-password.component';
+export * from './lib/validators/password-validator/password.valirator';

@@ -17,21 +17,22 @@ import {
 } from '@angular/forms';
 import { debounceTime, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { passwordValidator } from '../../../../validators/password-validator/password.valirator';
 
 @Component({
-  selector: 'jbx-input-text',
+  selector: 'jbx-input-password',
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './input-text.component.html',
+  templateUrl: './input-password.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputTextComponent),
+      useExisting: forwardRef(() => InputPasswordComponent),
       multi: true,
     },
   ],
 })
-export class InputTextComponent
+export class InputPasswordComponent
   extends FormBaseComponent
   implements OnInit, ControlValueAccessor
 {
@@ -58,7 +59,7 @@ export class InputTextComponent
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     isDisabled ? this.formControl.disable() : this.formControl.enable();
   }
-
+ 
   writeValue(value: string): void {
     this.formControl.setValue(value, { emitEvent: false });
   }

@@ -1,0 +1,31 @@
+@defer (when loginFormGroup(); hydrate on interaction) {
+<jbx-form-layout>
+  <form [formGroup]="loginFormGroup()">
+    <jbx-input-text
+      id="email-input"
+      ariaLabel="email"
+      i18n-label
+      label="Email"
+      [formControlName]="LoginFormControlsEnum.email"
+    />
+    <jbx-input-password
+      id="password-input"
+      ariaLabel="password"
+      i18n-label
+      label="Password"
+      [formControlName]="LoginFormControlsEnum.password"
+    />
+  </form>
+  <footer class="d-flex justify-content-end gap-2">
+    <jbx-primary-button
+      id="login-button"
+      i18nLabel
+      label="Login"
+      ariaLabel="Login"
+      (clickNg)="onLoginButtonClick()"
+    />
+  </footer>
+</jbx-form-layout>
+} @placeholder {
+<span i18n>Loading...</span>
+}

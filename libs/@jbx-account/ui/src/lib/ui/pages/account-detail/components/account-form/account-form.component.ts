@@ -51,8 +51,7 @@ export class AccountFormComponent {
     )
   );
 
-  AccountFormGroupControlsEnum: typeof AccountFormControlsEnum =
-    AccountFormControlsEnum;
+  protected readonly AccountFormGroupControlsEnum : typeof AccountFormControlsEnum = AccountFormControlsEnum;
 
   protected onCancelButtonClick(): void {
     this.cancelForm.emit();
