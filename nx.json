@@ -87,7 +87,9 @@
       "linter": "eslint",
       "unitTestRunner": "jest",
       "changeDetection": "OnPush",
-      "style": "none"
+      "style": "none",
+      "skipModule": true,
+      "standalone": false
     },
     "@nx/angular:component": {
       "style": "none",

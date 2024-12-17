@@ -22,6 +22,8 @@
       ],
       "@jbx-account/ui": ["libs/@jbx-account/ui/src/index.ts"],
       "@jbx/cdk": ["packages/@jbx/cdk/src/index.ts"],
+      "@jbx/error": ["packages/@jbx/error/src/index.ts"],
+      "@jbx/message": ["packages/@jbx/message/src/index.ts"],
       "@jbx/mom": ["packages/@jbx/mom/src/index.ts"],
       "@jbx/security": ["packages/@jbx/security/src/index.ts"]
     }
